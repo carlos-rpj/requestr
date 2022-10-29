@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requestr</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="content">
+    <form class="request" onsubmit="sendRequest(event)">
+      <div class="section-header">
+        <select class="form-field" name="method" id="method">
+          <option value="GET">GET</option>
+          <option value="POST">POST</option>
+          <option value="PUT">PUT</option>
+          <option value="DELETE">DELETE</option>
+          <option value="PATCH">PATCH</option>
+          <option value="OPTIONS">OPTIONS</option>
+          <option value="HEAD">HEAD</option>
+        </select>
+        <input type="url" class="form-field" name="url" id="url" placeholder="https://example.com/api">
+        <input type="submit" class="form-field" value="Send">
+      </div>
+      <div class="section-data">
+        <div class="tabs">
+          <div class="tab active" onclick="changeTab(event, 'body')">No Body</div>
+          <div class="tab" onclick="changeTab(event, 'auth')">Auth</div>
+          <div class="tab" onclick="changeTab(event, 'query')">Query</div>
+          <div class="tab" onclick="changeTab(event, 'header')">Header</div>
+          <div class="tab no-tab"></div>
+        </div>
+        <div class="tab-content">
+          <textarea class="tab-pane active form-body" name="body" id="body" aria-multiline="true"></textarea>
+          <div class="tab-pane" id="auth"></div>
+          <div class="tab-pane" id="query"></div>
+          <div class="tab-pane" id="header"></div>
+        </div>
+      </div>
+    </form>
+    <div class="response">
+      <div class="section-header">
+        <div class="response-header-pill response-status"></div>
+        <div class="response-header-pill response-time"></div>
+        <div class="response-header-pill response-size"></div>
+      </div>
+      <div class="section-data">
+        <pre class="response-data"></pre>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

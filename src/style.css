@@ -1,0 +1,150 @@
+* {
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: rgb(79, 145, 66);
+  --primary-color-blank: rgb(55, 99, 46);
+  --border-global: thin solid #333;
+  --border-transparent: thin solid transparent;
+  --text-color: rgba(255, 255, 255, 0.75);
+}
+
+body {
+  background-color: #1f1f1f;
+  color: var(--text-color);
+}
+
+.content {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.content .request {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content .response {
+  flex: 1;
+  border-left: var(--border-global);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.form-field {
+  border: none;
+  padding: 8px 12px;
+  outline: none;
+  background-color: rgb(26, 26, 26);
+  color: var(--text-color);
+}
+
+.form-body {
+  flex: 1;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  resize: none;
+  color:  var(--text-color);
+  padding: 8px;
+}
+
+.section-header {
+  display: flex;
+  background-color: rgb(26, 26, 26);
+  border-bottom: var(--border-global);
+  min-height: 34px;
+  max-height: 34px;
+}
+
+.section-header select.form-field {
+  flex: 0;
+}
+
+.section-header input.form-field[type="url"] {
+  flex: 1;
+}
+
+.section-header input.form-field[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: background-color ease-out 200ms;
+}
+
+.section-header input.form-field[type="submit"]:hover {
+  background-color: var(--primary-color-blank);
+}
+
+.content .response .section-header .response-header-pill {
+  margin: 6px;
+  margin-right: 0;
+  margin-left: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #333;
+}
+
+.section-data {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.section-data .tabs {
+  display: flex;
+}
+
+.section-data .tabs .tab.no-tab {
+  flex: 1;
+  cursor: default;
+}
+
+.section-data .tabs .tab {
+  padding: 12px 16px;
+  border: var(--border-transparent);
+  border-bottom: var(--border-global);
+  cursor: pointer;
+}
+
+.section-data .tabs .tab.active {
+  border-left: var(--border-global);
+  border-right: var(--border-global);
+  border-bottom: var(--border-transparent);
+}
+
+.section-data .tabs .tab.active:nth-child(1) {
+  border-left: var(--border-transparent);
+}
+
+.section-data .tab-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-data .tab-content .tab-pane {
+  flex: 1;
+  display: none;
+}
+
+.section-data .tab-content .tab-pane.active {
+  flex: 1;
+  display: flex;
+}
+
+.section-data .response-data {
+  flex: 1;
+  overflow: auto;
+  padding: 8px;
+}
